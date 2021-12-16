@@ -171,6 +171,7 @@ function PreviousSong() {
       currentTime.innerHTML = `0 : 00`;
       seconds = 0;
       minutes = 0;
+      currentProgress.style.width = "0";
     }
   });
 }
@@ -192,6 +193,7 @@ function NextSong() {
       currentTime.innerHTML = `0 : 00`;
       seconds = 0;
       minutes = 0;
+      currentProgress.style.width = "0";
     }
   });
 }
@@ -217,6 +219,12 @@ function setProgress() {
     let clickX = e.offsetX;
     let duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
+    minutes = parseInt(audio.currentTime / 60);
+    seconds = parseInt((audio.currentTime / 60).toFixed(2).slice(2, 4) / 1.65);
+    if (seconds < 10) {
+      currentTime.innerHTML = `${minutes} : 0${seconds}`;
+    }
+    currentTime.innerHTML = `${minutes} : ${seconds}`;
   });
 }
 

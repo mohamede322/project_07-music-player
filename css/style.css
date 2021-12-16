@@ -87,6 +87,9 @@ img {
   position: relative;
   overflow: hidden;
 }
+.image {
+  position: relative;
+}
 .txt {
   background: var(--dark-blue);
   display: flex;
@@ -188,6 +191,9 @@ img {
   width: 100%;
   padding: 20px;
   display: none;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
 }
 .active {
   animation: playlist-slider 1s forwards;
